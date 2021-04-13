@@ -1,13 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-// 플러그인 삽입
-// jvm, spirng, springboot
 plugins {
     id("org.jetbrains.kotlin.jvm")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
+
+    id("nu.studer.jooq") apply false
+    id("org.flywaydb.flyway") apply false
+    id("com.github.johnrengelman.processes") apply false
 
     id("org.jetbrains.kotlin.plugin.spring") apply false
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management") apply false
+    id("org.springdoc.openapi-gradle-plugin") apply false
 }
 
 allprojects {
@@ -30,10 +35,17 @@ allprojects {
 subprojects {
     apply {
         plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jlleitschuh.gradle.ktlint")
+        plugin("io.gitlab.arturbosch.detekt")
+
+        plugin("nu.studer.jooq")
+        plugin("org.flywaydb.flyway")
+        plugin("com.github.johnrengelman.processes")
 
         plugin("org.jetbrains.kotlin.plugin.spring")
         plugin("org.springframework.boot")
         plugin("io.spring.dependency-management")
+        plugin("org.springdoc.openapi-gradle-plugin")
     }
 
     tasks.withType<KotlinCompile> {

@@ -15,4 +15,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}") {
         exclude(group = "io.undertow", module = "undertow-websockets-jsr")
     }
+
+    // Persistent
+    implementation("org.springframework.boot:spring-boot-starter-jooq:${springBootVersion}")
 }

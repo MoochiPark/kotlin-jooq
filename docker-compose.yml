@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+    postgresql:
+        image: postgres
+        container_name: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: daewon
+            POSTGRES_PASSWORD: qkqh123
+            POSTGRES_DB: test
+            TZ: Asia/Seoul
+        ports:
+            - 5432:5432
+        volumes:
+            - ./postgresql/data:/var/lib/postgresql/data
+            - ./postgresql/sql/create_table.sql:/docker-entrypoint-initdb.d/create_table.sql

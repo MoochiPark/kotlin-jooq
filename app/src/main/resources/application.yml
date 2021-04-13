@@ -1,26 +1,33 @@
 spring:
-  profiles:
-    active: local
+    profiles:
+        active: local
 
 ---
 spring:
-  config:
-    activate:
-      on-profile: local
+    config:
+        activate:
+            on-profile: local
+    datasource:
+        url: jdbc:postgresql://localhost:5432/test
+        username: daewon
+        password: qkqh123
+        driver-class-name: org.postgresql.Driver
+    jooq:
+        sql-dialect: postgres
 
 server:
-  port: 443
-  ssl:
-    enabled: true
-    key-alias: cert
-    key-store: keystore.properties
-    key-store-type: PEMCFG
-#    key-store-type: PKCS12
-    key-store-password: secret
-    protocol: TLSv1.2
-  #    key-alias: cert
-#    key-store: keystore.p12
-#    key-store-type: PKCS12
-#    key-store-password: secret
-  http2:
-    enabled: true
+    port: 443
+    ssl:
+        enabled: true
+        key-alias: cert
+        key-store: keystore.properties
+        key-store-type: PEMCFG
+        #    key-store-type: PKCS12
+        key-store-password: secret
+        protocol: TLSv1.2
+    #    key-alias: cert
+    #    key-store: keystore.p12
+    #    key-store-type: PKCS12
+    #    key-store-password: secret
+    http2:
+        enabled: true

@@ -10,5 +10,4 @@ class ApplicationController {
 
     @GetMapping
     fun getIndex(): String = "Welcome! Wisoft Laboratory."
-
 }
